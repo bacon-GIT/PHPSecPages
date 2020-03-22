@@ -1,36 +1,31 @@
 <?php
-	// Database connection
-    // Just debugging, good luck getting my data
-	$server = "localhost";
-	$username = "root";
-	$password = "1111";
-	$dbname = "PT_login";
+ini_set('display_errors',1);
+error_reporting(E_ALL);
+include "config.php";
 
-echo "Test 1";
+// Check if submit is not empty
+if(isset($_POST['but_submit'])){
 
-	// Create Connection
-	$conn = new mysqli($server, $username, $password, $dbname);
+    // Escape strings submitted
+    $uname = mysqli_real_escape_string($con,$_POST['username']);
+    $password = mysqli_real_escape_string($con,$_POST['password']);
 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+    // Check to ensure strings have values
+    if ($uname != "" && $password != ""){
+
+        $sql_query = "select count(*) as cntUser from users where username='".$uname."' and password='".$password."'";
+        $result = mysqli_query($con,$sql_query);
+        $row = mysqli_fetch_array($result);
+
+        $count = $row['cntUser'];
+
+        if($count > 0){
+            $_SESSION['uname'] = $uname;
+            header('Location: ../home.php');
+        }else{
+            echo "Invalid username and password";
         }
 
-        $sql = "SELECT * FROM login";
-        $result = $conn->query($sql);
+    }
 
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "Username: " . $row["username"]. " - password (unhashed): " . $row["password"]. " " . $row["id"]. "<br>";
-            }
-        } else {
-            echo "0 results";
-        }
-        $conn->close();
-
-	//$result = $mysqli->query("SELECT * FROM login");
-
-	//echo $result;
-
-echo "Test 2";
-?>
+}
