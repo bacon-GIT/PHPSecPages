@@ -1,3 +1,7 @@
+<?php
+include_once('scripts/logCheck.php');
+?>
+
 <HTML>
 <head>
     <title>Tests</title>
@@ -13,6 +17,7 @@
 
 <p>Test Good</p>
 <!--Tests for Server Info-->
+<h1>Logged In</h1>
 <div class="footer">
     <?php echo "PHP Good";?>
 </div>
