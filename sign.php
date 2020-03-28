@@ -6,7 +6,7 @@
 <h1>Enter Username and Password</h1>
 
 <div class="info">
-    <form action="/~sftpuser/scripts/signup.php" method="post">
+    <form action="scripts/signup.php" method="post">
     <label for="username">Username</label>
     <input type="Text" name="username" id="username" required><br />
     <label for="password">Password</label>

@@ -1,8 +1,19 @@
 <?php
 include_once('scripts/logCheck.php');
-include_once('scripts/config.php');
 ini_set('display_errors',1);
 error_reporting(E_ALL);
+$servername = "localhost";
+$username_db = "root";
+$password_db = "root";
+$dbname = "login";
+
+// Create connection
+$conn = new mysqli($servername, $username_db, $password_db, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 // TODO: Rewrite as a class so I can easily include header variables
 // include "config.php";

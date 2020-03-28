@@ -1,5 +1,14 @@
 <?php
+ini_set('display_errors',1);
+error_reporting(E_ALL);
 include_once('scripts/logCheck.php');
+
+if(array_key_exists('logout', $_POST)) {
+            logout();
+}
+function logout() {
+    session_destroy();
+}
 ?>
 
 <HTML>
@@ -11,13 +20,19 @@ include_once('scripts/logCheck.php');
 <header>
     <h1>Attack This Page</h1><hr />
     <nav>
-        <p><a href="main.php">Other Attack Page</a></p><br />
+        <p><a href="index.php">Other Attack Page</a></p><br />
+        <p><a href="sign.php">Create New Users</a></p><br />
     </nav>
 </header>
 
-<p>Test Good</p>
 <!--Tests for Server Info-->
-<h1>Logged In</h1>
+<h2>Logged In</h2>
+
+<form method="POST">
+    <input type="submit" name="logout"
+    class="button" value="logout" />
+</form>
+
 <div class="footer">
     <?php echo "PHP Good";?>
 </div>

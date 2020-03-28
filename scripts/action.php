@@ -2,7 +2,7 @@
 session_start();
 ini_set('display_errors',1);
 error_reporting(E_ALL);
-include "config.php";
+include_once("config.php");
 
 // Check if submit is not empty
 if(isset($_POST['but_submit'])){

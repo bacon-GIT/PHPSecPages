@@ -2,6 +2,18 @@ h1 {
     background-color: burlywood;
     text-align: center;
 }
+h2 {
+    text-align: center;
+}
 body {
     background-color: antiquewhite;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #9f5ea0;
+    color: white;
+    text-align: center;
 }
