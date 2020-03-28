@@ -28,10 +28,12 @@ function logout() {
 <!--Tests for Server Info-->
 <h2>Logged In</h2>
 
-<form method="POST">
-    <input type="submit" name="logout"
-    class="button" value="logout" />
-</form>
+<div class="logout">
+    <form method="POST">
+        <input type="submit" name="logout"
+        class="button" value="logout" />
+    </form>
+</div>
 
 <div class="footer">
     <?php echo "PHP Good";?>
