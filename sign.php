@@ -1,3 +1,6 @@
+<?php
+include_once("scripts/logCheck.php");
+?>
 <html>
     <head>
     <title>Sign Up</title>

@@ -10,7 +10,6 @@ if(isset($_POST['but_submit'])){
     // Escape strings submitted
     $uname = mysqli_real_escape_string($con,$_POST['username']);
     $password = mysqli_real_escape_string($con,$_POST['password']);
-
     // Check to ensure strings have values
     if ($uname != "" && $password != ""){
 
